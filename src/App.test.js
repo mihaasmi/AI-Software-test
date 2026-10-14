@@ -1,8 +1,13 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
+test('renders the first web app intro and GitHub link', () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+
+  expect(
+    screen.getByRole('heading', { name: /this is my first web app/i })
+  ).toBeInTheDocument();
+  expect(
+    screen.getAllByRole('link', { name: /github|explore the project/i })[0]
+  ).toHaveAttribute('href', 'https://github.com/mihaasmi/AI-Software-test');
 });
