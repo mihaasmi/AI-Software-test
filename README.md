@@ -6,6 +6,12 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
+### Firebase configuration
+
+Create a root-level `.env` file from `.env.example` and set the Firebase values
+there. Create React App exposes only variables prefixed with `REACT_APP_` to the
+client bundle; these values are configuration, not secrets.
+
 ### `npm start`
 
 Runs the app in the development mode.\
