@@ -1,38 +1,259 @@
-.App {
+#root {
+  min-height: 100vh;
+}
+
+.landing-page {
+  --ink: #20231f;
+  --muted: #74776f;
+  --accent: #bdff69;
+  --line: rgba(32, 35, 31, 0.13);
+  position: relative;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 50% 47%, rgba(222, 243, 196, 0.58), transparent 48%),
+    #f6f7f2;
+  color: var(--ink);
+}
+
+.top-bar,
+.footer {
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px clamp(24px, 7vw, 104px);
+}
+
+.top-bar {
+  border-bottom: 1px solid var(--line);
+}
+
+.wordmark,
+.nav-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  font-size: 11px;
+  font-weight: 750;
+  letter-spacing: 0.13em;
+}
+
+.wordmark-icon {
+  display: grid;
+  width: 32px;
+  height: 32px;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  font-family: monospace;
+  font-size: 13px;
+  letter-spacing: -0.08em;
+}
+
+.nav-link {
+  color: var(--muted);
+  font-size: 13px;
+  transition: color 160ms ease;
+}
+
+.nav-link:hover {
+  color: var(--ink);
+}
+
+.nav-link span {
+  padding-left: 4px;
+}
+
+.hero {
+  position: relative;
+  display: grid;
+  flex: 1;
+  min-height: 520px;
+  place-items: center;
+  padding: 76px 24px 84px;
+}
+
+.hero-content {
+  z-index: 1;
+  width: min(100%, 680px);
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+.eyebrow {
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 9px;
+  margin: 0 0 25px;
+  color: var(--muted);
+  font-size: 12px;
+  letter-spacing: 0.025em;
 }
 
-.App-link {
-  color: #61dafb;
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #7aa849;
+  box-shadow: 0 0 0 4px rgba(122, 168, 73, 0.13);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.hero h1 {
+  margin: 0;
+  font-size: clamp(52px, 8.2vw, 96px);
+  font-weight: 650;
+  letter-spacing: -0.075em;
+  line-height: 0.98;
+}
+
+.hero h1 span {
+  color: #858c7d;
+}
+
+.intro {
+  max-width: 410px;
+  margin: 25px auto 30px;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+.github-button {
+  display: inline-flex;
+  min-height: 52px;
+  align-items: center;
+  gap: 12px;
+  padding: 0 18px;
+  border: 1px solid var(--ink);
+  border-radius: 8px;
+  background: var(--ink);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 160ms ease, background 160ms ease;
+}
+
+.github-button:hover {
+  transform: translateY(-2px);
+  background: #383d35;
+}
+
+.github-icon {
+  width: 19px;
+  height: 19px;
+  fill: currentColor;
+}
+
+.button-arrow {
+  margin-left: 10px;
+  color: var(--accent);
+  font-size: 16px;
+}
+
+.decorative-orbit {
+  position: absolute;
+  left: 50%;
+  width: min(72vw, 720px);
+  aspect-ratio: 1;
+  border: 1px solid rgba(32, 35, 31, 0.055);
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+}
+
+.orbit-one {
+  top: 50%;
+}
+
+.orbit-two {
+  top: 50%;
+  width: min(58vw, 570px);
+}
+
+.hero-sparkle {
+  position: absolute;
+  color: #9aa18e;
+  font-size: 20px;
+}
+
+.sparkle-one {
+  top: 25%;
+  left: 23%;
+}
+
+.sparkle-two {
+  right: 24%;
+  bottom: 25%;
+  color: #aebc9e;
+  font-size: 17px;
+}
+
+.footer {
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 11px;
+  letter-spacing: 0.015em;
+}
+
+.footer span span {
+  padding-left: 3px;
+  color: var(--ink);
+}
+
+@media (max-width: 600px) {
+  .top-bar,
+  .footer {
+    padding: 22px 20px;
   }
-  to {
-    transform: rotate(360deg);
+
+  .hero {
+    min-height: 500px;
+    padding: 60px 22px;
+  }
+
+  .hero h1 {
+    font-size: clamp(50px, 14vw, 72px);
+  }
+
+  .intro {
+    font-size: 14px;
+  }
+
+  .decorative-orbit {
+    width: 110vw;
+  }
+
+  .orbit-two {
+    width: 88vw;
+  }
+
+  .sparkle-one {
+    left: 12%;
+  }
+
+  .sparkle-two {
+    right: 13%;
+  }
+
+  .footer {
+    gap: 12px;
+    font-size: 10px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
   }
 }
